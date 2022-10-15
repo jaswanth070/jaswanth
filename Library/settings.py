@@ -35,7 +35,8 @@ SECRET_KEY = 'django-insecure-vc3bg9-esnj+3(x!7lllt*w%ph9-ub=@_%4!hncvj@n__$qr&j
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','elibrary-system.herokuapp.com']
+# ALLOWED_HOSTS = ['127.0.0.1','elibrary-system.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -133,7 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.jopin(BASE_DIR, 'static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -157,3 +159,5 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '287762052023-1uu0adthne1l5bkr676rjdm627j5gtsr.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 django_heroku.settings(locals())
+
+
