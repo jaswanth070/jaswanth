@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
 # from .info import *
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -154,3 +155,5 @@ LOGOUT_REDIRECT_URL = '/login'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '287762052023-1uu0adthne1l5bkr676rjdm627j5gtsr.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+django_heroku.settings(locals())
