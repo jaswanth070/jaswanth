@@ -18,6 +18,7 @@ from django.urls import path,include
 from django.contrib.auth import views as auth_views
 # from django.views.static import static
 from django.views.static import serve
+from django.conf import settings
 # from django.conf.urls.static import static
 
 
@@ -25,8 +26,8 @@ from django.views.static import serve
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app1.urls')),
-    path((r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
-    path((r'^media/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    re_path((r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
+    re_path((r'^media/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 #     url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
 #     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]
