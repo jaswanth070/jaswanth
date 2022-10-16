@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 import django_heroku
-# import dj_databse_url
+import dj_databse_url
 # from decouple import config
 # from .info import *
 
@@ -34,8 +34,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vc3bg9-esnj+3(x!7lllt*w%ph9-ub=@_%4!hncvj@n__$qr&j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
 # ALLOWED_HOSTS = ['127.0.0.1','elibrary-system.herokuapp.com/']
 ALLOWED_HOSTS = []
