@@ -93,12 +93,28 @@ WSGI_APPLICATION = 'Library.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'elibrary',
+#         'USER': 'foo',
+#         'PASSWORD': 'bar',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
     }
 }
+
 
 
 # Password validation
@@ -167,6 +183,11 @@ LOGOUT_REDIRECT_URL = '/login'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '287762052023-1uu0adthne1l5bkr676rjdm627j5gtsr.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+DATABASES = { 'default' : dj_database_url.config()}
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 django_heroku.settings(locals())
 
