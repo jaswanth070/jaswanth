@@ -93,9 +93,9 @@ WSGI_APPLICATION = 'Library.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES['default'] = dj_database_url.config(
-    default='mysql://root:password@localhost:3306/elibrary',
-)
+# DATABASES['default'] = dj_database_url.config(
+#     default='mysql://root:password@localhost:3306/elibrary',
+# )
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -112,11 +112,11 @@ DATABASES['default'] = dj_database_url.config(
 #         'PORT': '5432',
 #     }
 # }
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#     }
-# }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+    }
+}
 
 
 
