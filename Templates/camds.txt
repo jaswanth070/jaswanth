@@ -1,0 +1,2 @@
+heroku run -a elibrary-system python manage.py migrate
+heroku --elibrary-system --run python manage.py createsuperuser
