@@ -65,32 +65,36 @@ def home(request):
 # @csrf_protect
 @ensure_csrf_cookie
 def login(request):
-    if request.method == 'POST':
-         # AuthenticationForm_can_also_be_used
-        form = LoginForm(request.POST)
+    try:
+        if request.method == 'POST':
+             # AuthenticationForm_can_also_be_used
+            form = LoginForm(request.POST)
 
-        if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(request,username=cd['username'], password=cd['password'])
+            if form.is_valid():
+                cd = form.cleaned_data
+                user = authenticate(request,username=cd['username'], password=cd['password'])
 
-            if user is not None:
-                # if user.is_active():
-                LOGIN_CHK(request, user)
-                messages.success(request,f"Successfully Logged In as {user.first_name} {user.  last_name}")
-                return render(request,'dashboard.html',{'name': user.first_name})
-                # else:
-                #     messages.warning(request,"Please activate your account through the email sent yo you")
-                #     return render(request,'login.html')
+                if user is not None:
+                    # if user.is_active():
+                    LOGIN_CHK(request, user)
+                    messages.success(request,f"Successfully Logged In as {user.first_name} {user.   last_name}")
+                    return render(request,'dashboard.html',{'name': user.first_name})
+                    # else:
+                    #     messages.warning(request,"Please activate your account through the email sent     yo you")
+                    #     return render(request,'login.html')
 
-            else:
-                messages.warning(request,"If not activate your account through the email senet to your registered email")
-                messages.warning(request,"Bad Credintails")
-                return render(request,'login.html')
-    else:
-        form = LoginForm()
-        # messages.success(request,f"Successfully Logged")
-        # return render(request,'login.html',{'form':form})
-        # return render(request,'login.html')
+                else:
+                    messages.warning(request,"If not activate your account through the email senet to   your registered email")
+                    messages.warning(request,"Bad Credintails")
+                    return render(request,'login.html')
+        else:
+            form = LoginForm()
+            # messages.success(request,f"Successfully Logged")
+            # return render(request,'login.html',{'form':form})
+            # return render(request,'login.html')
+    except(MultiValueDictKeyError):
+        messages.warning(request, 'Activate your account through the email sent to your registered email')
+        render(request,'login.html')
     return render(request,'login.html',{'form':form})
 
 @login_excluded('dashboard')
