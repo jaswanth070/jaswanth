@@ -16,6 +16,7 @@ import dj_database_url
 # from decouple import config
 # from .info import *
 
+# For welcome email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = "smtp.gmail.com"
