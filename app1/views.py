@@ -35,7 +35,24 @@ def login_excluded(redirect_to):
 
 @login_required
 def dashboard(request):
-    return render(request,'dashboard.html',{'name':request.user.first_name})
+    return render(request,'dash_all.html',{'name':request.user.first_name})
+
+@login_required
+def dashboard_religious(request):
+    return render(request,'dash_reg.html',{'name':request.user.first_name})
+    
+@login_required
+def dashboard_biography(request):
+    return render(request,'dash_bio.html',{'name':request.user.first_name})
+
+@login_required
+def dashboard_english(request):
+    return render(request,'dash_eng.html',{'name':request.user.first_name})
+
+@login_required
+def dashboard_computers(request):
+    return render(request,'dash_comp.html',{'name':request.user.first_name})
+
 
 def under_dev(request):
     return render(request,'under_dev.html')
