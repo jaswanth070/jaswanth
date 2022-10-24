@@ -96,7 +96,7 @@ def login(request):
                     # if user.is_active():
                     LOGIN_CHK(request, user)
                     messages.success(request,f"Successfully Logged In as {user.first_name} {user.   last_name}")
-                    return render(request,'dashboard.html',{'name': user.first_name})
+                    return render(request,'dash_all.html',{'name': user.first_name})
                     # else:
                     #     messages.warning(request,"Please activate your account through the email sent     yo you")
                     #     return render(request,'login.html')
