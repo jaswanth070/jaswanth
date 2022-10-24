@@ -204,7 +204,7 @@ def activate(request,uidb64,token,backend='django.contrib.auth.backends.ModelBac
         LOGIN_CHK(request, myuser,backend='django.contrib.auth.backends.ModelBackend')
         # fname = myuser.first_name
         # messages.success(request, "Your Account has been activated!!")
-        return render(request,'dashboard.html',{'name': myuser.first_name})
+        return render(request,'dashboard_temp.html',{'name': myuser.first_name})
     else:
         return render(request,'activation_failed.html')
    
