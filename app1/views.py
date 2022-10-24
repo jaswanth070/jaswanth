@@ -110,7 +110,7 @@ def login(request):
             # messages.success(request,f"Successfully Logged")
             # return render(request,'login.html',{'form':form})
             # return render(request,'login.html')
-    except(MultiValueDictKeyError):
+    except:
         messages.warning(request, 'Activate your account through the email sent to your registered email')
         render(request,'login.html')
     return render(request,'login.html',{'form':form})
